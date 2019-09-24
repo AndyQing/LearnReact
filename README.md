@@ -1,3 +1,6 @@
+下载项目，然后执行【npm install】，之后再执行【npm start】启动项目。
+
+下面是创建项目时，自己生成的文件
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
