@@ -6,22 +6,23 @@ import Home from './components/Home';
 import TodoList from './components/TodoList2';
 import ReactForm from './components/ReactForm';
 import Father from './components/Father';
-// import AjaxCom from './components/AjaxCom';//error
+import AjaxCom from './components/AjaxCom';
 import Axios from './components/Axios';
-// import FetchJsonp from './components/FetchJsonp';//error
+import FetchJsonp from './components/FetchJsonp';
 import Lifecycle from './components/Lifecycle';
-// import RouterABC from './components/RouterABC2';//error
+import RouterABC from './components/RouterABC2';
 import CreatClass from './components/CreatClassDemo';
-// import AntdMobile from './components/AntdMobile';//error
+
+// import AntdMobile from './components/AntdMobile';
+// import 'antd-mobile/dist/antd-mobile.css'; 
+
 import AntdDemo from './components/AntdDemo';
 import AntdTable from './components/AntdTable';
 import AntdTree from './components/AntdTree';
 import EditableTree from './components/EditableTree4';
 import AntdLayout from './components/AntdLayout';
 import AnchorCom from './components/AnchorCom2';
-// import 'antd-mobile/dist/antd-mobile.css'; 
-// import ImgCom from './components/ImgCom';
-
+import ImgCom from './components/ImgCom';
 import GetAllKeys from './components/GetAllKeys';
 
 function App() {
@@ -69,8 +70,8 @@ function App() {
       {/* <AnchorCom></AnchorCom> */}
 
       {/* <CreatClass num='123'></CreatClass> */}
-
-      {/* <ImgCom></ImgCom> */}
+      {/* 点击放大图片 */}
+      <ImgCom></ImgCom>
       <GetAllKeys></GetAllKeys>
     </div>
   );

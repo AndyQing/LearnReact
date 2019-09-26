@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Picker, List, Button, Toast, Carousel, WingBlank } from 'antd-mobile';
 import PickerChild from './PickerChild'
 
+// 官方文档链接：https://mobile.ant.design/docs/react/introduce-cn
+
 const seasons = [
   [
     {
