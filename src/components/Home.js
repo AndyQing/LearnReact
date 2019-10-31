@@ -118,7 +118,7 @@ class Home extends React.Component {
                 <div style={{ marginLeft: '10px', color: 'red' }}>我是一个带有行内样式的元素</div>
                 <div style={this.state.myStyle}>我是一个带有行内样式的元素</div>
                 下面引入是错误的：
-                <img src='../assets/images/pic.jpg' alt=""></img>
+                {/* <img src='../assets/images/pic.jpg' alt=""></img> */}
                 引入本地图片的两种方法：
                 方法1：
                 <img src={pic} alt=""></img>

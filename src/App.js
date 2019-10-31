@@ -24,6 +24,7 @@ import AntdLayout from './components/AntdLayout';
 import AnchorCom from './components/AnchorCom2';
 import ImgCom from './components/ImgCom';
 import GetAllKeys from './components/GetAllKeys';
+import AntdHanHua from './components/AntdHanHua';
 
 function App() {
   return (
@@ -57,9 +58,10 @@ function App() {
       {/* <RouterABC></RouterABC> */}
 
       {/* antd的学习： */}
-      {/* <AntdDemo></AntdDemo> */}
+      <AntdDemo aaa='from app.js'></AntdDemo>
+      {/* <AntdHanHua></AntdHanHua> */}
       {/* <AntdTable></AntdTable> */}
-      <AntdTree></AntdTree>
+      {/* <AntdTree></AntdTree> */}
       <hr />
       <EditableTree></EditableTree>
       {/* <AntdLayout></AntdLayout> */}
@@ -71,8 +73,15 @@ function App() {
 
       {/* <CreatClass num='123'></CreatClass> */}
       {/* 点击放大图片 */}
-      <ImgCom></ImgCom>
-      <GetAllKeys></GetAllKeys>
+      {/* <ImgCom></ImgCom> */}
+      {/* <GetAllKeys></GetAllKeys> */}
+
+      {/* 样式名包含变量 */}
+      {
+        [1, 2, 3].map(function (index) {
+          return <div className={'style' + index}>{index}</div>
+        })
+      }
     </div>
   );
 }
