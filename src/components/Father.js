@@ -1,6 +1,19 @@
 import React from 'react';
 import Header from './Header';
+import Proptypes from 'prop-types';
 class Father extends React.Component {
+    //     总结：
+    // 　　父组件需要用getChildContext()方法 return一个对象，里面以key：val的形式 传递你要传递的信息
+    // 　　父组件要对要传输的值进行类型检测，否则会报错
+    // 　　子组件要用this.context[key] 调用你需要的数据
+    // 　　子组件也需要对你需要的值进行类型检测，否则没有该值
+    getChildContext() { //现在父级组件里面这样去写你要传下去的数据
+        return { color: "purple" };
+    }
+    static childContextTypes = {//在定义父组件之后  一定要写PropType（类型检测），否则报错，执行不了
+        color: Proptypes.string
+    };
+
     constructor(props) {
         super(props);
         this.state = {

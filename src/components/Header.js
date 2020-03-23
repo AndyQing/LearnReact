@@ -29,6 +29,7 @@ class Header extends React.Component {
                 <button onClick={this.getFathMsg}>获取父组件中state中的title属性</button>
                 <button onClick={this.props.father.getSonData.bind(this, '我是子组件传过来的')}>子组件给父组件传值</button>
                 <button onClick={this.props.getSonData.bind(this, '我是子组件传过来的222')}>子组件给父组件传值2</button>
+                <p>{this.context.color}//在子组件里面通过该方法直接调用</p>
             </div>
         );
     }
@@ -43,4 +44,8 @@ class Header extends React.Component {
 // Header.propTypes = {
 //     num: Proptypes.number
 // }
+
+Header.contextTypes = {//必须进行类型检测，如果没有的话，不会报错，但是会没有该值
+  color: Proptypes.string
+};
 export default Header;

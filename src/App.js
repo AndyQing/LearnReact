@@ -47,7 +47,7 @@ function App() {
       {/* <Home></Home> */}
       {/* <ReactForm></ReactForm> */}
       {/* <TodoList></TodoList> */}
-      {/* <Father></Father> */}
+      <Father></Father>
       {/* 网络请求 */}
       {/* <AjaxCom></AjaxCom>
         <Axios></Axios> 
