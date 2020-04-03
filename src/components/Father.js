@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Header2 from './Header2';
 import Proptypes from 'prop-types';
 class Father extends React.Component {
     //     总结：
@@ -33,13 +34,17 @@ class Father extends React.Component {
     }
     //父组件调用子组件的数据和方法
     getSonRun = () => {
+        // alert(this.child.state.sonmsg);
+        this.child.run();
         // alert(this.refs.footer.state.sonmsg);
-        this.refs.footer.run();
+        // this.refs.footer.run();
     }
     render() {
         return (
             // 父组件可以传值，也可以传方法给子组件,还可以把整个父组件传给子组件
-            <div><Header title="haha" run={this.run} father={this} ref='footer' num={this.state.num} getSonData={this.getSonData}>header中间的文字对应props.children</Header>
+            <div>
+                {/* <Header title="haha" run={this.run} father={this} ref='footer' num={this.state.num} getSonData={this.getSonData}>header中间的文字对应props.children</Header> */}
+                <Header2 onRef={(ref) => { this.child = ref; }}></Header2>
                 <hr />我是父组件内容
                 <br />
                 <button onClick={this.getSonRun}>获取整个子组件</button>
