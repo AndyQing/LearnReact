@@ -3,6 +3,8 @@ import {Tree, Icon} from 'antd';
 import styles from './EditableTree.less';
 const {TreeNode} = Tree;
 
+//从gethub上面下载的源代码，自己可以根据需求再进行修改
+// https://github.com/JerryMissTom/react-editable-tree
 class EditableTree extends Component {
 
  data = [

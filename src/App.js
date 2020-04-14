@@ -19,7 +19,7 @@ import CreatClass from './components/CreatClassDemo';
 import AntdDemo from './components/AntdDemo';
 import AntdTable from './components/AntdTable';
 import AntdTree from './components/AntdTree';
-import EditableTree from './components/EditableTree4';
+import EditableTree from './components/EditableTree';
 import AntdLayout from './components/AntdLayout';
 import AnchorCom from './components/AnchorCom2';
 import ImgCom from './components/ImgCom';
@@ -58,7 +58,7 @@ function App() {
       {/* <RouterABC></RouterABC> */}
 
       {/* antd的学习： */}
-      <AntdDemo aaa='from app.js'></AntdDemo>
+      {/* <AntdDemo aaa='from app.js'></AntdDemo> */}
       {/* <AntdHanHua></AntdHanHua> */}
       {/* <AntdTable></AntdTable> */}
       {/* <AntdTree></AntdTree> */}
@@ -77,11 +77,11 @@ function App() {
       {/* <GetAllKeys></GetAllKeys> */}
 
       {/* 样式名包含变量 */}
-      {
+      {/* {
         [1, 2, 3].map(function (index) {
           return <div className={'style' + index}>{index}</div>
         })
-      }
+      } */}
     </div>
   );
 }
