@@ -8,7 +8,9 @@ class Header extends React.Component {
         };
     }
     componentDidMount() {
-        this.props.onRef(this);
+        if (this.props.onRef) {
+            this.props.onRef(this);
+        }
     }
     static defaultProps = {
         title: '标题'

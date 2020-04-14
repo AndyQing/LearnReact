@@ -1,3 +1,48 @@
-.red{
+.red {
     color: red;
+}
+
+.sorter {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.paixu {
+    height: 1em;
+    margin-top: -.75em;
+    margin-left: .57142857em;
+    color: #bfbfbf;
+    line-height: 1em;
+    text-align: center;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.paixu>i {
+    height: .5em;
+    line-height: .5em;
+}
+
+.paixu>i:last-child {
+    margin-top: .125em;
+}
+
+.sortbtn {
+    border-radius: 0;
+}
+
+.sortbtn:hover,
+.sortbtn:focus {
+    border-color: rgb(217, 217, 217);
+    color: rgba(0, 0, 0, 0.65);
+}
+.sortbtn.on{
+    background: #1890ff;
+    color: #fff;
+    border: 1px solid #1890ff;
+}
+.sortbtn.on .paixu>i.on{
+    color: white;
 }

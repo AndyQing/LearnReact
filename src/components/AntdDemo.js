@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Icon, DatePicker, TimePicker, Tree, Popconfirm } from 'antd';
 import styles from './EditableTree.less';
+import '../assets/css/home.css';
 
 const { TreeNode } = Tree;
 const { RangePicker } = DatePicker;
@@ -12,20 +13,45 @@ const HeartSvg = () => (
 const HeartIcon = props => <Icon component={HeartSvg} {...props} />;
 class AntdDemo extends React.Component {
   state = {
-    aaa:"123",
+    aaa: "123",
     data: [],
+
+    isClickSmart: false,
+    isClickTime: false,
+    clickTimeTopFlag: true,
+    clickSmartTopFlag: true,
   };
   onSelect = (selectedKeys, info) => {
-    console.log('selected', selectedKeys, info,this.props.aaa);
+    console.log('selected', selectedKeys, info, this.props.aaa);
   };
 
   onCheck = (checkedKeys, info) => {
-    console.log('onCheck', checkedKeys, info,this.props.aaa);
+    console.log('onCheck', checkedKeys, info, this.props.aaa);
   };
 
   render() {
     return (<div>
       <Button type="primary">hello</Button>
+      <Button>
+        Actions <Icon type="caret-up" />
+      </Button>
+      <Button className={"sortbtn " + (this.state.isClickSmart ? 'on' : 'off')} onClick={() => { this.clickSmart(); }} >
+        智能排序<span className="sorter">
+          <div className='paixu'>
+            <Icon type="caret-up" className={this.state.smarttop ? 'on' : 'off'} />
+            <Icon type="caret-down" className={this.state.smarttop ? 'off' : 'on'} />
+          </div>
+        </span>
+      </Button>
+      <Button className={"sortbtn " + (this.state.isClickTime ? 'on' : 'off')} onClick={() => { this.clickTime(); }}>
+        投标时间<span className="sorter">
+          <div className='paixu'>
+            <Icon type="caret-up" className={this.state.timetop ? 'on' : 'off'} />
+            <Icon type="caret-down" className={this.state.timetop ? 'off' : 'on'} />
+          </div>
+        </span>
+      </Button>
+
       <Icon type="step-backward" />
       <Icon component={HeartSvg} />
       <HeartIcon style={{ color: 'hotpink' }} />
@@ -97,6 +123,29 @@ class AntdDemo extends React.Component {
       </Tree>
     </div>);
   }
+
+  clickSmart() {
+    this.setState({
+      isClickSmart: true,
+      isClickTime: false,
+      smarttop: this.state.clickSmartTopFlag,
+      clickSmartTopFlag: !this.state.clickSmartTopFlag,
+      //重置另一个排序
+      clickTimeTopFlag: true,
+    })
+  }
+
+  clickTime() {
+    this.setState({
+      isClickSmart: false,
+      isClickTime: true,
+      timetop: this.state.clickTimeTopFlag,
+      clickTimeTopFlag: !this.state.clickTimeTopFlag,
+      //重置另一个排序
+      clickSmartTopFlag: true,
+    })
+  }
+
 }
 
 
