@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Header2 from './Header2';
+import Header3 from './Header3';
 import Proptypes from 'prop-types';
 class Father extends React.Component {
     //     总结：
@@ -36,6 +37,7 @@ class Father extends React.Component {
     getSonRun = () => {
         // alert(this.child.state.sonmsg);
         this.child.run();
+        this.child3.run();
         // alert(this.refs.footer.state.sonmsg);
         // this.refs.footer.run();
     }
@@ -45,6 +47,7 @@ class Father extends React.Component {
             <div>
                 {/* <Header title="haha" run={this.run} father={this} ref='footer' num={this.state.num} getSonData={this.getSonData}>header中间的文字对应props.children</Header> */}
                 <Header2 onRef={(ref) => { this.child = ref; }}></Header2>
+                <Header3 onRef={(ref) => { this.child3 = ref; }}></Header3>
                 <hr />我是父组件内容
                 <br />
                 <button onClick={this.getSonRun}>获取整个子组件</button>
