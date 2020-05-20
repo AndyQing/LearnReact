@@ -25,10 +25,15 @@ import AnchorCom from './components/AnchorCom2';
 import ImgCom from './components/ImgCom';
 import GetAllKeys from './components/GetAllKeys';
 import AntdHanHua from './components/AntdHanHua';
+import CountDown from './components/CountDown';
 
 function App() {
   return (
     <div className="App">
+      {/* timeOver={() => {console.log("finish---")}} */}
+      {/* <CountDown startTime='2020/05/20 09:10:00' endTime="2020/05/22 17:10:00" type='day'  /> */}
+      <CountDown startTime='2020/05/15 09:48:00' endTime="2020-05-22 09:36" type='day' />
+
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
