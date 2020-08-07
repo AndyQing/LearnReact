@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Zmage from 'react-zmage';
 // import RcViewer from '@hanyk/rc-viewer'
+// 点击放大图片
 class ImgCom extends Component {
     constructor(props) {
         super(props);

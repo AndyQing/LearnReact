@@ -1,5 +1,7 @@
 import React from 'react'
 
+// 倒计时组件
+// 使用方法：<CountDown startTime='2020/05/15 09:48:00' endTime="2020-05-22 09:36" type='day' timeOver={() => {console.log("finish---")}}/> 
 class CountDown extends React.Component {
     constructor(props) {
         super(props);

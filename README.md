@@ -1,4 +1,8 @@
 下载项目，然后执行【npm install】，之后再执行【npm start】启动项目。
+打包发布：
+【npm run build】之后会生成一个build文件夹
+【npm i -g serve】全局安装serve
+【serve build】然后访问 http://localhost:5000 
 
 下面是创建项目时，自己生成的文件
 

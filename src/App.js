@@ -1,85 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Hello from './components/Helllo';
-import Home from './components/Home';
-import TodoList from './components/TodoList2';
-import ReactForm from './components/ReactForm';
-import Father from './components/Father';
-import AjaxCom from './components/AjaxCom';
-import Axios from './components/Axios';
-import FetchJsonp from './components/FetchJsonp';
-import Lifecycle from './components/Lifecycle';
-import RouterABC from './components/RouterABC2';
-import CreatClass from './components/CreatClassDemo';
 
-// import AntdMobile from './components/AntdMobile';
-// import 'antd-mobile/dist/antd-mobile.css'; 
-
-import AntdDemo from './components/AntdDemo';
-import AntdTable from './components/AntdTable';
-import AntdTree from './components/AntdTree';
-import EditableTree from './components/EditableTree';
-import AntdLayout from './components/AntdLayout';
-import AnchorCom from './components/AnchorCom2';
-import ImgCom from './components/ImgCom';
-import GetAllKeys from './components/GetAllKeys';
-import AntdHanHua from './components/AntdHanHua';
-import CountDown from './components/CountDown';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import Login from './pages/login/login'
+import Admin from './pages/admin/admin'
 
 function App() {
   return (
     <div className="App">
-      {/* timeOver={() => {console.log("finish---")}} */}
-      {/* <CountDown startTime='2020/05/20 09:10:00' endTime="2020/05/22 17:10:00" type='day'  /> */}
-      <CountDown startTime='2020/05/15 09:48:00' endTime="2020-05-22 09:36" type='day' />
-
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      {/* <Hello></Hello> */}
-      {/* <Home></Home> */}
-      {/* <ReactForm></ReactForm> */}
-      {/* <TodoList></TodoList> */}
-      <Father></Father>
-      {/* 网络请求 */}
-      {/* <AjaxCom></AjaxCom>
-        <Axios></Axios> 
-        <hr/>
-        <FetchJsonp></FetchJsonp>  */}
-
-      {/* <Lifecycle></Lifecycle> */}
-      {/* <RouterABC></RouterABC> */}
-
-      {/* antd的学习： */}
-      {/* <AntdDemo aaa='from app.js'></AntdDemo> */}
-      {/* <AntdHanHua></AntdHanHua> */}
-      {/* <AntdTable></AntdTable> */}
-      {/* <AntdTree></AntdTree> */}
-      <hr />
-      <EditableTree></EditableTree>
-      {/* <AntdLayout></AntdLayout> */}
-
-      {/* antd mobile的学习： */}
-      {/* <AntdMobile></AntdMobile> */}
-
-      {/* <AnchorCom></AnchorCom> */}
-
-      {/* <CreatClass num='123'></CreatClass> */}
-      {/* 点击放大图片 */}
-      {/* <ImgCom></ImgCom> */}
-      {/* <GetAllKeys></GetAllKeys> */}
+      <Router>
+        {/* <Link to="/login">Login</Link>
+        <Link to="/">Admin</Link> */}
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/" component={Admin} />
+        </Switch>
+      </Router>
 
       {/* 样式名包含变量 */}
       {/* {
