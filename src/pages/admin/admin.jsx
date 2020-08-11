@@ -1,6 +1,12 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom'
 import memoryUtils from '../../utils/memoryUtils'
+import { Layout } from 'antd';
+
+import LeftNav from '../../components/left-nav'
+import Header from '../../components/topheader'
+
+const { Footer, Sider, Content } = Layout;
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -17,9 +23,17 @@ export default class Login extends React.Component {
             return <Redirect to='/login' />
         }
         return (
-            <div>
-                <h2>hello {user.username}</h2>
-            </div>
+            // <div>
+            //     <h2>hello {user.username}</h2>
+            // </div>
+            <Layout style={{ height: '100%' }}>
+                <Sider><LeftNav /></Sider>
+                <Layout>
+                    <Header>Header</Header>
+                    <Content>Content</Content>
+                    <Footer>Footer</Footer>
+                </Layout>
+            </Layout>
         );
     }
 }
