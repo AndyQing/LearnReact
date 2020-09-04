@@ -44,39 +44,11 @@ class LeftNav extends Component {
   */
   getMenuNodes_map = (menuList) => {
     return menuList.map(item => {
-      /*
-        {
-          title: '首页', // 菜单标题名称
-          key: '/home', // 对应的path
-          icon: 'home', // 图标名称
-          children: [], // 可能有, 也可能没有
-        }
-
-        <Menu.Item key="/home">
-          <Link to='/home'>
-            <Icon type="pie-chart"/>
-            <span>首页</span>
-          </Link>
-        </Menu.Item>
-
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <Icon type="mail"/>
-              <span>商品</span>
-            </span>
-          }
-        >
-          <Menu.Item/>
-          <Menu.Item/>
-        </SubMenu>
-      */
       if (!item.children) {
         return (
           <Menu.Item key={item.key}>
             <Link to={item.key}>
-              <Icon type={item.icon}/>
+              <Icon type={item.icon} />
               <span>{item.title}</span>
             </Link>
           </Menu.Item>
@@ -87,7 +59,7 @@ class LeftNav extends Component {
             key={item.key}
             title={
               <span>
-                <Icon type={item.icon}/>
+                <Icon type={item.icon} />
                 <span>{item.title}</span>
               </span>
             }
@@ -117,7 +89,7 @@ class LeftNav extends Component {
           pre.push((
             <Menu.Item key={item.key}>
               <Link to={item.key}>
-                <Icon type={item.icon}/>
+                <Icon type={item.icon} />
                 <span>{item.title}</span>
               </Link>
             </Menu.Item>
@@ -137,7 +109,7 @@ class LeftNav extends Component {
               key={item.key}
               title={
                 <span>
-                  <Icon type={item.icon}/>
+                  <Icon type={item.icon} />
                   <span>{item.title}</span>
                 </span>
               }
