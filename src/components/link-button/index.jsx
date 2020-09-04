@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.less'
+import './index.css'
 /*
 外形像链接的按钮
  */

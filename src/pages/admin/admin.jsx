@@ -30,8 +30,8 @@ export default class Login extends React.Component {
                 <Sider><LeftNav /></Sider>
                 <Layout>
                     <Header>Header</Header>
-                    <Content>Content</Content>
-                    <Footer>Footer</Footer>
+                    <Content style={{margin: 20, backgroundColor: '#fff'}}>Content</Content>
+                    <Footer style={{textAlign: 'center', color: '#cccccc'}}>Footer</Footer>
                 </Layout>
             </Layout>
         );

@@ -8,7 +8,7 @@ import menuList from '../../config/menuConfig'
 import {formateDate} from '../../utils/dateUtils'
 import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils'
-import './index.less'
+import './index.css'
 
 /*
 左侧导航的组件
