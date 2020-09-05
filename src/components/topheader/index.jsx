@@ -1,17 +1,17 @@
-import React, {Component} from 'react'
-import {withRouter} from 'react-router-dom'
-import { Modal} from 'antd'
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import { Modal } from 'antd'
 
 import LinkButton from '../link-button'
-import {reqWeather} from '../../api'
+import { reqWeather } from '../../api'
 import menuList from '../../config/menuConfig'
-import {formateDate} from '../../utils/dateUtils'
+import { formateDate } from '../../utils/dateUtils'
 import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils'
 import './index.css'
 
 /*
-左侧导航的组件
+页面顶部的组件
  */
 class Header extends Component {
 
@@ -19,21 +19,22 @@ class Header extends Component {
     currentTime: formateDate(Date.now()), // 当前时间字符串
     dayPictureUrl: '', // 天气图片url
     weather: '', // 天气的文本
+    temperature: '', // 温度的文本
   }
 
   getTime = () => {
     // 每隔1s获取当前时间, 并更新状态数据currentTime
     this.intervalId = setInterval(() => {
       const currentTime = formateDate(Date.now())
-      this.setState({currentTime})
+      this.setState({ currentTime })
     }, 1000)
   }
 
   getWeather = async () => {
     // 调用接口请求异步获取数据
-    const {dayPictureUrl, weather} = await reqWeather('北京')
+    const { dayPictureUrl, weather, temperature } = await reqWeather('南京')
     // 更新状态
-    this.setState({dayPictureUrl, weather})
+    this.setState({ dayPictureUrl, weather, temperature })
   }
 
   getTitle = () => {
@@ -41,13 +42,14 @@ class Header extends Component {
     const path = this.props.location.pathname
     let title
     menuList.forEach(item => {
-      if (item.key===path) { // 如果当前item对象的key与path一样,item的title就是需要显示的title
+      if (item.key === path) { // 如果当前item对象的key与path一样,item的title就是需要显示的title
         title = item.title
       } else if (item.children) {
         // 在所有子item中查找匹配的
-        const cItem = item.children.find(cItem => path.indexOf(cItem.key)===0)
+        // const cItem = item.children.find(cItem => path.indexOf(cItem.key) === 0)
+        const cItem = item.children.find(cItem => cItem.key === path)
         // 如果有值才说明有匹配的
-        if(cItem) {
+        if (cItem) {
           // 取出它的title
           title = cItem.title
         }
@@ -79,7 +81,7 @@ class Header extends Component {
   第一次render()之后执行一次
   一般在此执行异步操作: 发ajax请求/启动定时器
    */
-  componentDidMount () {
+  componentDidMount() {
     // 获取当前的时间
     this.getTime()
     // 获取当前天气
@@ -94,7 +96,7 @@ class Header extends Component {
   /*
   当前组件卸载之前调用
    */
-  componentWillUnmount () {
+  componentWillUnmount() {
     // 清除定时器
     clearInterval(this.intervalId)
   }
@@ -102,7 +104,7 @@ class Header extends Component {
 
   render() {
 
-    const {currentTime, dayPictureUrl, weather} = this.state
+    const { currentTime, dayPictureUrl, weather, temperature } = this.state
 
     const username = memoryUtils.user.username
 
@@ -118,8 +120,8 @@ class Header extends Component {
           <div className="header-bottom-left">{title}</div>
           <div className="header-bottom-right">
             <span>{currentTime}</span>
-            <img src={dayPictureUrl} alt="weather"/>
-            <span>{weather}</span>
+            <img src={dayPictureUrl} alt="weather" />
+            <span>{weather}{temperature}</span>
           </div>
         </div>
       </div>
