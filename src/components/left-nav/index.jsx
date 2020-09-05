@@ -43,6 +43,7 @@ class LeftNav extends Component {
   使用map() + 递归调用
   */
   getMenuNodes_map = (menuList) => {
+    const path = this.props.location.pathname
     return menuList.map(item => {
       if (!item.children) {
         return (
@@ -53,7 +54,13 @@ class LeftNav extends Component {
             </Link>
           </Menu.Item>
         )
-      } else {
+      } else {//有children，还要判断子菜单有没有被展开
+        // 查找一个与当前请求路径匹配的子Item
+        const cItem = item.children.find(cItem => path.indexOf(cItem.key) === 0)
+        // 如果存在, 说明当前item的子列表需要打开
+        if (cItem) {
+          this.openKey = item.key
+        }
         return (
           <SubMenu
             key={item.key}
@@ -79,7 +86,7 @@ class LeftNav extends Component {
   getMenuNodes = (menuList) => {
     // 得到当前请求的路由路径
     const path = this.props.location.pathname
-
+    // 第一次pre代表初始值，后面一直累加
     return menuList.reduce((pre, item) => {
 
       // 如果当前用户有item对应的权限, 才需要显示对应的菜单项
@@ -125,10 +132,11 @@ class LeftNav extends Component {
   }
 
   /*
-  在第一次render()之前执行一次
+  componentWillMount：在第一次render()之前执行一次
   为第一个render()准备数据(必须同步的)
    */
   componentWillMount() {
+    // this.menuNodes = this.getMenuNodes_map(menuList)
     this.menuNodes = this.getMenuNodes(menuList)
   }
 
@@ -174,3 +182,4 @@ withRouter高阶组件:
 新的组件向非路由组件传递3个属性: history/location/match
  */
 export default withRouter(LeftNav)
+// export default LeftNav//这样this.props.location=undefined
