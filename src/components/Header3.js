@@ -3,7 +3,9 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
     }
+
     componentDidMount() {
+        //方法2：
         if (this.props.onRef) {
             this.props.onRef(this);
         }

@@ -18,6 +18,8 @@ class Father extends React.Component {
 
     constructor(props) {
         super(props);
+        // 方法3：创建用来保存ref标识的标签对象的容器
+        this.pw = React.createRef()
         this.state = {
             title: 'hello qing',
             num: 123//num如果是字符串的话，控制台会报错，因为子组件设置了Header.propTypes
@@ -40,14 +42,21 @@ class Father extends React.Component {
         this.child3.run();
         // alert(this.refs.footer.state.sonmsg);
         // this.refs.footer.run();
+        //方法3：
+        console.log("this.pw---", this.pw.current);
+        this.pw.current.run()
     }
     render() {
         return (
             // 父组件可以传值，也可以传方法给子组件,还可以把整个父组件传给子组件
             <div>
+                {/* 方法1： */}
                 {/* <Header title="haha" run={this.run} father={this} ref='footer' num={this.state.num} getSonData={this.getSonData}>header中间的文字对应props.children</Header> */}
+                {/* 方法2： */}
                 <Header2 onRef={(ref) => { this.child = ref; }}></Header2>
                 <Header3 onRef={(ref) => { this.child3 = ref; }}></Header3>
+                {/* 方法3： */}
+                <Header3 ref={this.pw}></Header3>
                 <hr />我是父组件内容
                 <br />
                 <button onClick={this.getSonRun}>获取整个子组件</button>
