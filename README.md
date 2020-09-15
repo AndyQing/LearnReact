@@ -405,7 +405,8 @@
 # day07
 
 ## 1. RichTextEditor
-    1). 使用基于react的富文本编程器插件库: react-draft-wysiwyg
+    1). 使用基于react的富文本编程器插件库: react-draft-wysiwyg （wysiwyg代表所见即所得，what you see is what you get）
+    注：安装完react-draft-wysiwyg，还需要安装 draftjs-to-html 、html-to-draftjs
     2). 参考库的DEMO和API文档编写
     3). 如果还有不确定的, 百度搜索, 指定相对准确的关键字
     
