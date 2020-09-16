@@ -52,7 +52,7 @@ class Index extends Component {
                     rowSelection={{
                         type: 'radio',
                         selectedRowKeys: [role._id],
-                        onSelect: (role) => { // 选择某个radio时回调
+                        onSelect: (role) => { // 选择某个radio时回调，解决点击单选不能选中的问题
                             this.setState({
                                 role
                             })
