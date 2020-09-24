@@ -82,11 +82,24 @@ class AddForm extends Component {
             // precision={2}//precision加了之后，还是会可输入超过2位的，但是失去焦点后会四舍五入
             // formatter={value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             // parser={value => value.replace(/\$\s?|(,*)/g, '')}
-            
+
             //用下面的方法即可实现逗号分隔，又能只限制2位小数的输入
             formatter={limitDecimalsF}
             parser={limitDecimalsP}
             placeholder='请输入预算' />
+        </Item>
+        {/* 个人测试，验证输入的号码*/}
+        <Item name='mobile'
+          rules={[
+            {
+              pattern: /^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/,
+              message: '联系方式不正确'
+            }
+          ]}>
+          <Input
+            type='phone'
+            maxLength={15}
+            placeholder='请输入电话或手机号码' />
         </Item>
       </Form>
     )
