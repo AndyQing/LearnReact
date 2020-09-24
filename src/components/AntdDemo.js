@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Icon, DatePicker, TimePicker, Tree, Popconfirm } from 'antd';
+import { Button, DatePicker, TimePicker, Tree, Popconfirm } from 'antd';
 import styles from './EditableTree.less';
 import '../assets/css/home.css';
-
+import { Icon } from '@ant-design/compatible';
+import { createFromIconfontCN } from '@ant-design/icons';
 // antd的学习：
 const { TreeNode } = Tree;
 const { RangePicker } = DatePicker;
@@ -12,6 +13,9 @@ const HeartSvg = () => (
   </svg>
 );
 const HeartIcon = props => <Icon component={HeartSvg} {...props} />;
+const MyIcon = createFromIconfontCN({
+  scriptUrl: '/iconfont.js'
+})
 class AntdDemo extends React.Component {
   state = {
     aaa: "123",
@@ -56,6 +60,7 @@ class AntdDemo extends React.Component {
       <Icon type="step-backward" />
       <Icon component={HeartSvg} />
       <HeartIcon style={{ color: 'hotpink' }} />
+      <MyIcon type='icon_jishi' style={{ fontSize: '20px' }}></MyIcon>
       <DatePicker />
       <TimePicker />
       <RangePicker style={{ width: 200 }} />

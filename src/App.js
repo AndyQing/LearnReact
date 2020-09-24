@@ -4,12 +4,12 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import Login from './pages/login/login'
 import Admin from './pages/admin/admin'
-// import Father from './components/Father'//自己测试的页面
+// import Test from './components/AntdDemo'//自己测试的页面
 
 function App() {
   return (
     <div className="App">
-      {/* <Father></Father> */}
+      {/* <Test></Test> */}
       <Router>
         {/* <Link to="/login">Login</Link>
         <Link to="/">Admin</Link> */}
