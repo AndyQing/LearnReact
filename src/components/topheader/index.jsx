@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Modal } from 'antd'
+import { connect } from 'react-redux'//step1
 
 import LinkButton from '../link-button'
 import { reqWeather } from '../../api'
@@ -109,7 +110,8 @@ class Header extends Component {
     const username = memoryUtils.user.username
 
     // 得到当前需要显示的title
-    const title = this.getTitle()
+    // const title = this.getTitle()
+    const title = this.props.headTitle;//step3
     return (
       <div className="header">
         <div className="header-top">
@@ -129,4 +131,8 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header)
+// export default withRouter(Header)
+export default connect(
+  state => ({ headTitle: state.headTitle }),
+  {}
+)(withRouter(Header))//step2
