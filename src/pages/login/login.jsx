@@ -5,13 +5,16 @@ import './login.css';
 import logo from '../../assets/images/logo.png';
 import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { reqLogin } from '../../api'
-import memoryUtils from '../../utils/memoryUtils'
-import storageUtils from '../../utils/storageUtils'
+// import { reqLogin } from '../../api'
+// import memoryUtils from '../../utils/memoryUtils'
+// import storageUtils from '../../utils/storageUtils'
+
+import { connect } from 'react-redux'//step1
+import { login } from '../../redux/actions'//step2
 
 const Item = Form.Item // 不能写在import之前
 
-export default class Login extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,31 +24,33 @@ export default class Login extends React.Component {
 
     render() {
         // 如果用户已经登陆, 自动跳转到管理界面
-        const user = memoryUtils.user
+        // const user = memoryUtils.user
+        const user = this.props.user;
         if (user && user._id) {
-            return <Redirect to='/' />
+            return <Redirect to='/home' />
         }
         // await和async作用：1、消灭.then成功或失败的回调函数 2、以同步编码（没有回调函数了）方式实现异步流程
         const onFinish = async (values) => {
             console.log('Success:', values);
             const { username, password } = values
-            const result = await reqLogin(username, password) // {status: 0, data: user}  {status: 1, msg: 'xxx'}
-            // console.log('请求成功', result)
-            if (result.status === 0) { // 登陆成功
-                // 提示登陆成功
-                message.success('登陆成功')
+            this.props.login(username, password);
+            // const result = await reqLogin(username, password) // {status: 0, data: user}  {status: 1, msg: 'xxx'}
+            // // console.log('请求成功', result)
+            // if (result.status === 0) { // 登陆成功
+            //     // 提示登陆成功
+            //     message.success('登陆成功')
 
-                // 保存user
-                const user = result.data
-                memoryUtils.user = user // 保存在内存中
-                storageUtils.saveUser(user) // 保存到local中
+            //     // 保存user
+            //     const user = result.data
+            //     memoryUtils.user = user // 保存在内存中
+            //     storageUtils.saveUser(user) // 保存到local中
 
-                // 跳转到管理界面 (不需要再回退回到登陆)
-                this.props.history.replace('/home')
-            } else { // 登陆失败
-                // 提示错误信息
-                message.error(result.msg)
-            }
+            //     // 跳转到管理界面 (不需要再回退回到登陆)
+            //     this.props.history.replace('/home')
+            // } else { // 登陆失败
+            //     // 提示错误信息
+            //     message.error(result.msg)
+            // }
         };
 
         const onFinishFailed = errorInfo => {
@@ -99,3 +104,7 @@ export default class Login extends React.Component {
         );
     }
 }
+export default connect(
+    state => ({ user: state.user }),
+    { login }
+)(Login)
