@@ -8,8 +8,6 @@ import LinkButton from '../link-button'
 import { reqWeather } from '../../api'
 import menuList from '../../config/menuConfig'
 import { formateDate } from '../../utils/dateUtils'
-import memoryUtils from '../../utils/memoryUtils'
-import storageUtils from '../../utils/storageUtils'
 import './index.css'
 
 /*
@@ -70,8 +68,6 @@ class Header extends Component {
       onOk: () => {
         console.log('OK', this)
         // 删除保存的user数据
-        // storageUtils.removeUser()
-        // memoryUtils.user = {}
         this.props.logout();
 
         // 跳转到login
@@ -109,7 +105,6 @@ class Header extends Component {
 
     const { currentTime, dayPictureUrl, weather, temperature } = this.state
 
-    // const username = memoryUtils.user.username
     const username = this.props.user.username
 
     // 得到当前需要显示的title

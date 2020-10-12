@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom'
-import memoryUtils from '../../utils/memoryUtils'
 import { Layout } from 'antd';
+import { connect } from 'react-redux'
 
 import LeftNav from '../../components/left-nav'
 import Header from '../../components/topheader'
@@ -17,7 +17,7 @@ import Pie from '../charts/pie'
 import NotFound from '../not-found/not-found'
 
 const { Footer, Sider, Content } = Layout;
-export default class Login extends React.Component {
+class Admin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -26,7 +26,12 @@ export default class Login extends React.Component {
     }
 
     render() {
-        const user = memoryUtils.user
+        const user = this.props.user
+        // 如果内存没有存储user ==> 当前没有登陆
+        if (!user || !user._id) {
+            // 自动跳转到登陆(在render()中)
+            return <Redirect to='/login' />
+        }
         // 如果内存没有存储user ==> 当前没有登陆
         if (!user || !user._id) {
             // 自动跳转到登陆(在render()中)
@@ -61,3 +66,7 @@ export default class Login extends React.Component {
         );
     }
 }
+export default connect(
+    state => ({ user: state.user }),
+    {}
+)(Admin)
