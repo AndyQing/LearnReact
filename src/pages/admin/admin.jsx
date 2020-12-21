@@ -12,6 +12,7 @@ import Role from '../role'
 import User from '../user'
 import Order from '../order'
 import Bar from '../charts/bar'
+import Map from '../charts/map'
 import Line from '../charts/line'
 import Pie from '../charts/pie'
 import NotFound from '../not-found/not-found'
@@ -54,6 +55,7 @@ class Admin extends React.Component {
                             <Route path='/user' component={User} />
                             <Route path='/role' component={Role} />
                             <Route path="/charts/bar" component={Bar} />
+                            <Route path="/charts/map" component={Map} />
                             <Route path="/charts/pie" component={Pie} />
                             <Route path="/charts/line" component={Line} />
                             <Route path="/order" component={Order} />

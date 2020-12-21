@@ -45,6 +45,11 @@ const menuList = [
         icon: 'bar-chart'
       },
       {
+        title: '散点图',
+        key: '/charts/map',
+        icon: 'bar-chart'
+      },
+      {
         title: '折线图',
         key: '/charts/line',
         icon: 'line-chart'
