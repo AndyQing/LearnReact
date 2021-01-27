@@ -2,14 +2,25 @@ import React, { Component } from 'react';
 import { Table } from 'antd';
 
 const columns = [
-  { title: 'Name', dataIndex: 'name', key: 'name', width: '100' },
-  { title: 'Age', dataIndex: 'age', key: 'age', width: '100px' },
-  { title: 'Address', dataIndex: 'address', key: 'address', width: 100 },
+  //测试宽度超出100%
+  // { title: 'Name', dataIndex: 'name', width: '60%'},
+  // { title: 'Age', dataIndex: 'age',  width: '50%' },
+  // { title: 'address', dataIndex: 'address',  width: '10%' },
+
+  { title: 'Name', dataIndex: 'name', key: 'name', width: 100, fixed: 'left' },
+  { title: 'Age', dataIndex: 'age', key: 'age', width: '100px', fixed: 'left' },
+  {
+    title: 'Address这是一个超长字符看看会不会换行然后是否出现表格对不齐的问题',
+    dataIndex: 'address', key: 'address', width: 100, ellipsis: true
+  },
+  {
+    title: 'description', dataIndex: 'description', width: 300
+  },
   {
     title: 'Action',
-    dataIndex: '',
+    dataIndex: 'x',
     key: 'x',
-    width: 50,
+    width: 80,//设置50时，最短显示70多
     render: () => <a>Delete</a>,
   },
 ];
@@ -50,7 +61,7 @@ class AntdDemo extends React.Component {
   render() {
     return (<Table
       columns={columns}
-      expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
+      // expandedRowRender={record => <p style={{ margin: 0 }}>{record.description}</p>}
       dataSource={data}
       scroll={{ x: 200 }}
     />);
