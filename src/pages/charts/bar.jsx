@@ -6,6 +6,9 @@ import 'echarts/lib/chart/bar';
 // 引入提示框和标题组件
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/title';
+
+import HorBar from '../../components/bar/horizontalBar'
+import NormalLineBar from '../../components/bar/normalLineBar'
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -31,7 +34,24 @@ class Index extends Component {
     }
     render() {
         return (
-            <div id="main" style={{ width: 400, height: 400 }}>bar</div>
+            <div>
+                <div id="main" style={{ width: 400, height: 400 }}>bar</div>
+                {/* <HorBar title='图表1'
+                    yAxis_data={["总预算", "已立项", "已采购", "已执行",]}
+                    datas={{ '金额': [5, 20, 36, 10] }} /> */}
+                <NormalLineBar title='图表2'
+                    xAxis_data={["板块1", "板块2", "板块3", "板块4",]}
+                    datas={{
+                        '总预算': { type: 'bar', data: [400, 500, 800, 300] },
+                        '已立项': { type: 'bar', data: [300, 300, 600, 300] },
+                        '已采购': { type: 'bar', data: [200, 300, 300, 300] },
+                        '已执行': { type: 'bar', data: [100, 100, 200, 0] },
+                        '立项占比': { type: 'line', data: [75, 60, 75, 100] },
+                        '采购占比': { type: 'line', data: [50, 60, 38, 100] },
+                        '执行占比': { type: 'line', data: [25, 20, 25, 0] },
+                    }} />
+            </div>
+
         );
     }
 }
