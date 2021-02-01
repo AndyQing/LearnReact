@@ -30,6 +30,7 @@ export default class Bar extends Component {
     getOption = () => {
         let { title, yAxis_data, datas } = this.props;
         let option = {
+            color: ['#5b9bd5', '#ed7d31', '#a5a5a5', '#ffc000', '#4472c4', '#70ad47', '#255e91'],
             title: {
                 // text: 'ECharts 入门示例'
                 text: title
@@ -39,11 +40,13 @@ export default class Bar extends Component {
                 // data: ['销量', '库存']
             },
             xAxis: {
-                type: 'value'
+                type: 'value',
+                name: '单位：不含税，万元'
             },
             yAxis: {
                 type: 'category',
-                data: yAxis_data
+                data: yAxis_data,
+                // axisLabel: { interval: 0, rotate: 30 },
             },
             // series: [{
             //     name: '销量',
@@ -64,7 +67,13 @@ export default class Bar extends Component {
                 arrTemp.push({
                     name: item,
                     type: 'bar',
-                    data: datas[item]
+                    data: datas[item],
+                    tooltip: {
+                        formatter(params){
+                            console.log('params', params)
+                            return params.data
+                        }
+                    }
                 })
             }
         }
@@ -78,6 +87,7 @@ export default class Bar extends Component {
 
 }
 Bar.propTypes = {
-    // title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     yAxis_data: PropTypes.array.isRequired,
+    datas: PropTypes.object.isRequired,
 }

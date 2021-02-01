@@ -6,7 +6,7 @@ import ReactEcharts from 'echarts-for-react'
 /*
 柱状图+折线图组件
  */
-export default class Bar extends Component {
+class Bar extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         if (this.props == nextProps) {
             return false
@@ -25,6 +25,7 @@ export default class Bar extends Component {
     getOption = () => {
         let { title, xAxis_data, datas } = this.props;
         let option = {
+            color: ['#5b9bd5', '#ed7d31', '#a5a5a5', '#ffc000', '#4472c4', '#70ad47', '#255e91'],
             title: {
                 // text: 'ECharts 入门示例'
                 text: title
@@ -32,15 +33,24 @@ export default class Bar extends Component {
             tooltip: {},
             legend: {
                 // data: ['销量', '库存']
+                itemGap: 5,//图例每项之间的间隔,默认是10
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
             },
             xAxis: {
                 type: 'category',
-                data: xAxis_data
+                data: xAxis_data,
+                axisLabel: { interval: 0, rotate: 40 },//使x轴title倾斜
             },
             yAxis: [{
                 type: 'value',
-                min: 0,
-                max: 1000,
+                name: '单位：不含税，万元'
+                // min: 0,
+                // max: 1000,
             }, {
                 type: 'value',
                 axisLabel: {
@@ -61,6 +71,9 @@ export default class Bar extends Component {
                 }
                 if (datas[item].type == 'line') {
                     tempObj.yAxisIndex = 1;
+                    tempObj.tooltip = {
+                        formatter: '{a}<br/>{b}: {c}%'
+                    }
                 }
                 arrTemp.push(tempObj)
             }
@@ -71,10 +84,10 @@ export default class Bar extends Component {
         option.series = arrTemp;
         return option
     }
-
-
 }
 Bar.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     xAxis_data: PropTypes.array.isRequired,
+    datas: PropTypes.object.isRequired,
 }
+export default Bar

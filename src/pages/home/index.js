@@ -3,7 +3,8 @@ import {
     Card,
     Statistic,
     DatePicker,
-    Timeline
+    Timeline,
+    Row, Col,
 } from 'antd'
 import moment from 'moment'
 import { Icon } from '@ant-design/compatible';
@@ -30,11 +31,20 @@ export default class Home extends Component {
 
         return (
             <div className='home'>
+                <Row gutter={16}>
+                    <Col className="gutter-row" span={12}>
+                        <div className="gutter-box">col-12</div>
+                    </Col>
+                    <Col className="gutter-row" span={12}>
+                        <div className="gutter-box">col-12</div>
+                    </Col>
+                </Row>
                 <Card
                     className="home-card"
                     title="商品总量"
                     extra={<Icon style={{ color: 'rgba(0,0,0,.45)' }} type="question-circle" />}
                     style={{ width: 250 }}
+                    bodyStyle={{ padding: '20px 0' }}
                     headStyle={{ color: 'rgba(0,0,0,.45)' }}
                 >
                     <Statistic

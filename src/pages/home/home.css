@@ -42,3 +42,8 @@
     float: right;
     width: 330px;
 }
+
+.gutter-box {
+    background: #00a0e9;
+    padding: 5px 0;
+  }
