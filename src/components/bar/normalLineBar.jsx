@@ -58,7 +58,19 @@ class Bar extends Component {
             xAxis: {
                 type: 'category',
                 data: xAxis_data,
-                axisLabel: { interval: 0, rotate: 40 },//使x轴title倾斜
+                axisLabel: {
+                    interval: 0, rotate: 35,//使x轴title倾斜
+                    formatter: function (params) {//对x轴title进行处理，超长显示'...'
+                        // console.log(params)
+                        var newParamsName = "";// 最终拼接成的字符串
+                        if (params.length > 8) {
+                            newParamsName = params.substring(0, 8) + '...'
+                        } else {
+                            newParamsName = params
+                        }
+                        return newParamsName
+                    }
+                },
             },
             yAxis: [{
                 type: 'value',

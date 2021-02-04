@@ -43,7 +43,7 @@ class Index extends Component {
                 />
                 <NormalLineBar
                     // title='图表2'
-                    xAxis_data={["板块1", "固定资产折旧费", "板块3", "板块4",]}
+                    xAxis_data={["固定资产折旧费这个名字挺长的", "固定资产折旧费", "板块3", "板块4",]}
                     datas={{
                         '总预算': { type: 'bar', data: [529, 3129, 2939, 31] },
                         '已立项': { type: 'bar', data: [300, 300, 600, 300] },
