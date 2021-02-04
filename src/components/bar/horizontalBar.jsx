@@ -28,7 +28,7 @@ export default class Bar extends Component {
    返回柱状图的配置对象
     */
     getOption = () => {
-        let { title, yAxis_data, datas } = this.props;
+        let { title, yAxis_data, datas, zhanbi } = this.props;
         let option = {
             color: ['#5b9bd5', '#ed7d31', '#a5a5a5', '#ffc000', '#4472c4', '#70ad47', '#255e91'],
             title: {
@@ -41,7 +41,7 @@ export default class Bar extends Component {
             },
             xAxis: {
                 type: 'value',
-                name: '单位：不含税，万元'
+                // name: '单位：不含税，万元'
             },
             yAxis: {
                 type: 'category',
@@ -62,16 +62,17 @@ export default class Bar extends Component {
         let legend_data = [];
         for (let item in datas) {
             if (datas.hasOwnProperty(item)) {
-                console.log('item---', item)
+                // console.log('item---', item)
                 legend_data.push(item);
                 arrTemp.push({
                     name: item,
                     type: 'bar',
                     data: datas[item],
+                    barWidth: 20,//设置柱状图粗细
                     tooltip: {
-                        formatter(params){
+                        formatter(params) {
                             console.log('params', params)
-                            return params.data
+                            return params.name + ':<br/>金额:' + params.value + '万元,占比：' + zhanbi[params.name]
                         }
                     }
                 })

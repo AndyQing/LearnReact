@@ -30,7 +30,21 @@ class Bar extends Component {
                 // text: 'ECharts 入门示例'
                 text: title
             },
-            tooltip: {},
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                    // console.log('params----', params)
+                    let res = params[0].name + ':<br/>';
+                    for (let i = 0; i < params.length; i++) {
+                        if (params[i].seriesType == 'line') {
+                            res += params[i].seriesName + ':' + params[i].value + '%<br/>';
+                        } else {
+                            res += params[i].seriesName + ':' + params[i].value + '万元<br/>';
+                        }
+                    }
+                    return res
+                }
+            },
             legend: {
                 // data: ['销量', '库存']
                 itemGap: 5,//图例每项之间的间隔,默认是10
@@ -48,21 +62,26 @@ class Bar extends Component {
             },
             yAxis: [{
                 type: 'value',
-                name: '单位：不含税，万元'
+                name: '单位：不含税，万元',
                 // min: 0,
                 // max: 1000,
             }, {
                 type: 'value',
+                // min: 0,
+                // max: 100,
                 axisLabel: {
-                    formatter: '{value} %'
-                }
+                    formatter: '{value}%'
+                },
+                splitLine: {
+                    show: false//不显示网格线
+                },
             }]
         }
         let arrTemp = [];
         let legend_data = [];
         for (let item in datas) {
             if (datas.hasOwnProperty(item)) {
-                console.log('item---', item)
+                // console.log('item---', item)
                 legend_data.push(item);
                 let tempObj = {
                     name: item,
@@ -71,9 +90,9 @@ class Bar extends Component {
                 }
                 if (datas[item].type == 'line') {
                     tempObj.yAxisIndex = 1;
-                    tempObj.tooltip = {
-                        formatter: '{a}<br/>{b}: {c}%'
-                    }
+                    // tempObj.tooltip = {
+                    //     formatter: '{a}<br/>{b}: {c}%'
+                    // }
                 }
                 arrTemp.push(tempObj)
             }

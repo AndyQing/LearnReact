@@ -38,16 +38,18 @@ class Index extends Component {
                 <div id="main" style={{ width: 400, height: 400 }}>bar</div>
                 <HorBar title='图表1'
                     yAxis_data={["总预算", "已立项", "已采购", "已执行",]}
-                    datas={{ '金额': [80, 20, 36, 10] }} />
+                    datas={{ '金额': [80, 20, 36, 10] }}
+                    zhanbi={{ '总预算': '100%', '已立项': '10%', '已采购': '20%', '已执行': '30%', }}
+                />
                 <NormalLineBar
                     // title='图表2'
-                    xAxis_data={["板块1", "固定资产折旧费哈", "板块3", "板块4",]}
+                    xAxis_data={["板块1", "固定资产折旧费", "板块3", "板块4",]}
                     datas={{
-                        '总预算': { type: 'bar', data: [1400, 1500, 800, 300] },
+                        '总预算': { type: 'bar', data: [529, 3129, 2939, 31] },
                         '已立项': { type: 'bar', data: [300, 300, 600, 300] },
                         '已采购': { type: 'bar', data: [200, 300, 300, 300] },
                         '已执行': { type: 'bar', data: [100, 100, 200, 0] },
-                        '立项占比': { type: 'line', data: [75, 60, 75, 100] },
+                        '立项占比': { type: 'line', data: [20, 76, 10, 0] },
                         '采购占比': { type: 'line', data: [50, 60, 38, 100] },
                         '执行占比': { type: 'line', data: [25, 20, 25, 0] },
                     }} />
