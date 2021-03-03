@@ -4,7 +4,7 @@ import {
   Geom,
   Axis,
   Tooltip,
-} from "bizcharts"
+} from "bizcharts"//使用了阿里巴巴图表库，官网：https://bizcharts.net/product/BizCharts4/gallery
 
 export default class Bar extends React.Component {
   render() {
@@ -64,16 +64,16 @@ export default class Bar extends React.Component {
       }
     }
     return (
-      <div style={{width: '100%', marginLeft: -30}}>
-        <Chart height={338} data={data} scale={cols} forceFit>
-          <Axis name="year"/>
-          <Axis name="sales"/>
+      <div style={{ width: '100%' }}>
+        <Chart height={338} width={600} data={data} scale={cols} forceFit>
+          <Axis name="year" />
+          <Axis name="sales" />
           <Tooltip
             crosshairs={{
               type: "y"
             }}
           />
-          <Geom type="interval" position="year*sales"/>
+          <Geom type="interval" position="year*sales" />
         </Chart>
       </div>
     )

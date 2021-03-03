@@ -5,9 +5,11 @@
   "homepage": ".",
   "dependencies": {
     "@ant-design/compatible": "^1.0.8",
+    "@antv/data-set": "^0.11.8",
     "antd": "^4.11.2",
     "antd-mobile": "^2.3.4",
     "axios": "^0.19.2",
+    "bizcharts": "^4.1.7",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
     "echarts": "^4.9.0",

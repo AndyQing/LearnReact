@@ -9,8 +9,8 @@ import {
 import moment from 'moment'
 import { Icon } from '@ant-design/compatible';
 
-// import Line from './line'
-// import Bar from './bar'
+import Line from './line'
+import Bar from './bar'
 import './home.css'
 
 const dateFormat = 'YYYY/MM/DD'
@@ -31,20 +31,20 @@ export default class Home extends Component {
 
         return (
             <div className='home'>
-                <Row gutter={16}>
+                {/* <Row gutter={16}>
                     <Col className="gutter-row" span={12}>
                         <div className="gutter-box">col-12</div>
                     </Col>
                     <Col className="gutter-row" span={12}>
                         <div className="gutter-box">col-12</div>
                     </Col>
-                </Row>
+                </Row> */}
                 <Card
                     className="home-card"
                     title="商品总量"
                     extra={<Icon style={{ color: 'rgba(0,0,0,.45)' }} type="question-circle" />}
                     style={{ width: 250 }}
-                    bodyStyle={{ padding: '20px 0' }}
+                    // bodyStyle={{ padding: '20px 0' }}
                     headStyle={{ color: 'rgba(0,0,0,.45)' }}
                 >
                     <Statistic
@@ -66,7 +66,7 @@ export default class Home extends Component {
                     />
                 </Card>
 
-                {/* <Line /> */}
+                <Line />
 
                 <Card
                     className="home-content"
@@ -86,7 +86,7 @@ export default class Home extends Component {
                         bodyStyle={{ padding: 0, height: 275 }}
                         extra={<Icon type="reload" />}
                     >
-                        {/* <Bar /> */}
+                        <Bar />
                     </Card>
 
                     <Card title='任务' extra={<Icon type="reload" />} className="home-table-right">
