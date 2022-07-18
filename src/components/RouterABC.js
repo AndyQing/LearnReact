@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import comA from './comA'
+import { BrowserRouter as Router, Route, Link, NavLink, Switch, Redirect } from "react-router-dom";
+import ComA from './ComA'
 import ComB from './ComB'
 import ComC from './ComC'
 import ComD from './ComD'
@@ -14,32 +14,28 @@ class RouterABC extends Component {
   render() {
     return (
       <Router>
-        <ul>
-          <li>
-            <Link to="/">ComA</Link>
-          </li>
-          <li>
-            <Link to="/b">ComB</Link>
-          </li>
-          {/* 下面是两个传值的 */}
-          {/* 1、动态路由传值 */}
-          <li>
-            <Link to="/c/12">ComC</Link>
-          </li>
-          {/* 2、get传值 */}
-          <li>
-            <Link to="/d?did=34">ComD</Link>
-          </li>
-          <li>
-            <Link to="/news">News</Link>
-          </li>
-        </ul>
+        {/* <Link to="/">ComA</Link><br />
+        <Link to="/b">ComB</Link><br /> */}
+
+        {/* 用NavLink来路由链接高亮： */}
+        <NavLink to="/a" activeClassName='active-link'>ComA</NavLink><br />
+        <NavLink to="/b" activeClassName='active-link'>ComB</NavLink><br />
+
+        {/* 下面是两个传值的 */}
+        {/* 1、动态路由传值 */}
+        <Link to="/c/12">ComC</Link><br />
+        {/* 2、get传值 */}
+        <Link to="/d?did=34">ComD</Link><br />
+        <Link to="/news">News</Link><br />
+
         <hr />
 
         <Switch>
-          <Route exact path="/" component={comA} />
-          {/* <Route path="/b" component={ComB} /> */}
-          <Redirect from="/b" to="/" />
+          {/* exact开启精准匹配，默认是模糊匹配 */}
+          <Route exact path="/a" component={ComA} />
+          <Route path="/b" component={ComB} />
+          {/* 重定向： */}
+          {/* <Redirect from="/b" to="/" /> */}
           <Route path="/c/:cid" component={ComC} />
           <Route path="/d" component={ComD} />
         </Switch>

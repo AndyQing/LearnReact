@@ -25,7 +25,17 @@
       因为它去找http://localhost:3000/charts/css/reset.css的文件了，
     因此用下面的方式，即把点给去掉 -->
   <link rel="stylesheet" href="/css/reset.css" />
+  <!-- 或者用下面的方式：
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/reset.css" /> -->
+
   <title>React App</title>
+  <style>
+    .active-link {
+      background-color: aqua;
+      padding: 0 10px;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
