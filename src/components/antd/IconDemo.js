@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { CheckCircleTwoTone, HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
+import { CheckCircleTwoTone, HeartTwoTone, SmileTwoTone, SyncOutlined, createFromIconfontCN } from '@ant-design/icons';
 import { Space } from 'antd';
-import { createFromIconfontCN } from '@ant-design/icons';
 import { Icon } from '@ant-design/compatible';
+// import Icon from '@ant-design/icons'//这种方式引入的icon，<Icon type="step-backward" />出不来
 
+//package.json中没有ant-design/icons，居然也可以？
 const IconFont = createFromIconfontCN({
-    // scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
+    // scriptUrl: '//at.alicdn.com/t/font_2090694_026qbhyjnxj5.js',
     scriptUrl: '/iconfont.js'//注：iconfont.js文件放在public文件夹下
 });
 
@@ -23,18 +24,18 @@ export default class IconDemo extends Component {
 
                 <Icon type="step-backward" />
                 <Icon component={HeartSvg} />
+                <HeartIcon style={{ color: 'hotpink' }} />
 
                 <SmileTwoTone />
                 <HeartTwoTone twoToneColor="#eb2f96" />
                 <CheckCircleTwoTone twoToneColor="#52c41a" />
+                <SyncOutlined spin />
 
-                {/* 下面两个是引用外部js生成的 */}
-                {/* <IconFont type="icon-tuichu" />
-                <IconFont type="icon-facebook" /> */}
+                {/* 下面是引用Iconfont网站生成的外部js生成的图标 */}
+                {/* <IconFont type="icon-shop_fill" /> */}
 
                 <IconFont type="icon_jishi" style={{ fontSize: '20px' }} />
 
-                <HeartIcon style={{ color: 'hotpink' }} />
             </Space>
         )
     }

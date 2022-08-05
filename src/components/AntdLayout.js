@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import { Icon } from '@ant-design/compatible';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -19,12 +20,14 @@ class AntdDemo extends React.Component {
           >
             <SubMenu
               key="sub1"
-              title={
-                <span>
-                  <Icon type="user" />
-                  subnav 1
-                </span>
-              }
+              // title={
+              //   <span>
+              //     <Icon type="user" />
+              //     subnav 1
+              //   </span>
+              // }
+              icon={<Icon type="user" />}
+              title='subnav 1'
             >
               <Menu.Item key="1">option1</Menu.Item>
               <Menu.Item key="2">option2</Menu.Item>
