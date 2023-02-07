@@ -8,7 +8,7 @@
     "antd": "^4.5.2",
     "antd-img-crop": "^4.2.5",
     "antd-mobile": "^2.3.1",
-    "axios": "^0.19.0",
+    "axios": "^0.21.2",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
     "fetch-jsonp": "^1.1.3",
